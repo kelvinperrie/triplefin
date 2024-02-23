@@ -1,6 +1,7 @@
 "use client"; 
   
 import keyData from '../public/key.json';
+import speciesData from '../public/species.json';
 import React, { useState } from 'react';
 
 
@@ -10,10 +11,10 @@ const HistoryComponent = (props) => {
 
     let historyOutput = "";
     if(stepHistory.length == 0) {
-        historyOutput = "There is no history items"
+        historyOutput = <div></div>
     } else {
-        historyOutput = stepHistory.map((item, index) => (<div key={item.id}>Id is {item.id}</div>))
-        historyOutput = <div>History items are:{historyOutput}</div>
+        historyOutput = stepHistory.map((item, index) => (<span className='breadrumb' key={item.id}>Q{item.id}</span>))
+        historyOutput = <div className="breadrumbs">Breadcrumbs: {historyOutput}</div>
     }
 
     return(
@@ -22,6 +23,28 @@ const HistoryComponent = (props) => {
         </div>
     )
 
+}
+
+const FilteredSpeciesComponent = (props) => {
+    const { filteredSpecies } = props;
+    //console.log(filteredSpecies);
+    return(
+        <div>
+            Possible species are:
+            {filteredSpecies.map((item) => (<div key={item}>{item}</div>))}
+        </div>
+    )
+}
+const SelectedSpeciesComponent = (props) => {
+    const {selectedSpecies} = props;
+    return(
+        <div>lets pretend we're showing the species here called {selectedSpecies.scientificName}</div>
+    )
+}
+
+function FindSpeciesByName(speciesName) {
+    const foundSpecies = speciesData.find(item => item.scientificName === speciesName);
+    return foundSpecies;
 }
 
 function FindCurrentKeyStepById(idToSet) {
@@ -65,9 +88,9 @@ const KeyComponent = () => {
     const [filteredSpecies, setFilteredSpecies] = useState(GetFilteredSpeciesForStepAndChildren(currentKeyStepId));
 
     const handle_stepClick = (clickedOption) => {
-        console.log(clickedOption)
-        console.log("step history is")
-        console.log(stepHistory)
+        // console.log(clickedOption)
+        // console.log("step history is")
+        // console.log(stepHistory)
         
         if(clickedOption.idToMoveTo!=null) {
 
@@ -81,8 +104,12 @@ const KeyComponent = () => {
                 console.log("couldn't find step " + clickedOption.idToMoveTo)
             }
         } else if (clickedOption.speciesToMoveTo) {
-            console.log("selected species scientific name is " + clickedOption.speciesToMoveTo)
-            //setCurrentSpecies()
+            console.log("selected species scientific name is " + clickedOption.speciesToMoveTo);
+            let foundSpecies = FindSpeciesByName(clickedOption.speciesToMoveTo);
+            if(!foundSpecies) {
+                console.log("this is a problem, we couldn't find the species called "+ clickedOption.speciesToMoveTo)
+            }
+            setCurrentSpecies(foundSpecies);
         }
     };
 
@@ -90,7 +117,7 @@ const KeyComponent = () => {
         <li key={item.id} onClick={function() { handle_stepClick(item);}}>{item.text}</li> 
     )) : "";
 
-    const welcomeText = "hellofffqd";
+    const welcomeText = "hello everybody, welcome to Mr Fish Website.";
     
     return (
       <div>{welcomeText}
@@ -98,14 +125,12 @@ const KeyComponent = () => {
             <HistoryComponent stepHistory={stepHistory}/>
         </div>
         <div>
-            <span>Current step: {currentKeyStep && currentKeyStep.id}</span>
+            {/* <span>Current step: {currentKeyStep && currentKeyStep.id}</span> */}
+            Select the option that best refelects your speciem 
             <div>{currestStepOptionsJsx}
             </div>
         </div>
-        <div>
-            Filtered species are:
-            {filteredSpecies.map((item) => (<div key={item}>{item}</div>))}
-        </div>
+        {currentSpecies!= null ? <SelectedSpeciesComponent selectedSpecies={currentSpecies} /> : <FilteredSpeciesComponent filteredSpecies={filteredSpecies} />}
       </div>
     )
   }
