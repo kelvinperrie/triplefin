@@ -7,15 +7,13 @@ import React, { useState } from 'react';
 
 const HistoryComponent = (props) => {
 
-    const { stepHistory } = props;
+    const { stepHistory, currentKeyStep, handle_breadcrumbClick } = props;
+
+    const currentStepJsx = <span className='breadrumb'>Q{currentKeyStep.id}</span>
 
     let historyOutput = "";
-    if(stepHistory.length == 0) {
-        historyOutput = <div></div>
-    } else {
-        historyOutput = stepHistory.map((item, index) => (<span className='breadrumb' key={item.id}>Q{item.id}</span>))
-        historyOutput = <div className="breadrumbs">Breadcrumbs: {historyOutput}</div>
-    }
+    historyOutput = stepHistory.map((item, index) => (<a href="" className='breadrumb' onClick={((e) => handle_breadcrumbClick(item, e)) } key={item.id}>Q{item.id}</a>))
+    historyOutput = <div className="breadrumbs">Breadcrumbs: {historyOutput}{currentStepJsx}</div>
 
     return(
         <div>
@@ -84,8 +82,26 @@ const KeyComponent = () => {
     const [currentKeyStep, setCurrentKeyStep] = useState(initialStep);
     const [currentSpecies, setCurrentSpecies] = useState(null);
     const [stepHistory, setStepHistory] = useState([]);
-    const [allSpecies, setSpecies] = useState([]);
     const [filteredSpecies, setFilteredSpecies] = useState(GetFilteredSpeciesForStepAndChildren(currentKeyStepId));
+
+    const handle_breadcrumbClick = (clickedBreadcrumb, event) => {
+        event.preventDefault();
+
+        // pop everything out of the history list until we find the clicked one (and pop that too)
+        let history = stepHistory;
+        let popped = null;
+        do {
+            popped = history.pop();
+        } while (popped.id != clickedBreadcrumb.id)
+
+        setStepHistory(history)
+        // set the current species to null
+        setCurrentSpecies(null);
+        // set the current step to the clicked one
+        setCurrentKeyStep(popped);
+        // fresh the filtered species
+        setFilteredSpecies(GetFilteredSpeciesForStepAndChildren(popped.id));
+    }
 
     const handle_stepClick = (clickedOption) => {
         // console.log(clickedOption)
@@ -114,7 +130,7 @@ const KeyComponent = () => {
     };
 
     const currestStepOptionsJsx = currentKeyStep ? currentKeyStep.options.map((item, index) => (
-        <li key={item.id} onClick={function() { handle_stepClick(item);}}>{item.text}</li> 
+        <li key={item.id} onClick={function() { handle_stepClick(item);}}>{item.text} (go to Q{item.idToMoveTo})</li> 
     )) : "";
 
     const welcomeText = "hello everybody, welcome to Mr Fish Website.";
@@ -122,7 +138,7 @@ const KeyComponent = () => {
     return (
       <div>{welcomeText}
         <div>
-            <HistoryComponent stepHistory={stepHistory}/>
+            <HistoryComponent stepHistory={stepHistory} currentKeyStep={currentKeyStep} handle_breadcrumbClick={handle_breadcrumbClick}/>
         </div>
         <div>
             {/* <span>Current step: {currentKeyStep && currentKeyStep.id}</span> */}

@@ -50,19 +50,57 @@
         ]
     },
     {
+        "id": "4",
+        "options": [ 
+            { 
+                "id": "4a",
+                "text": "D2 with 12-16 spines; snout slightly pointed",
+                "idToMoveTo": 5,
+                "speciesToMoveTo": null,
+                "speciesDetail": null
+            },
+            { 
+                "id": "4b",
+                "text": "Pectoral fin base and belly scaleless; 1 anal fin spine; D1 spines simle, without additional spinules; Kermadec Islands",
+                "idToMoveTo": null,
+                "speciesToMoveTo": "Ruanoho decemdigitatus",
+                "speciesDetail": "p521"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "options": [ 
+            { 
+                "id": "5a",
+                "text": "Anal fin with 2 spines; body completely scaled (without naked strips below the dorsal and anal fin bases); pectoral fin base with a black blotch and posterior white margin",
+                "idToMoveTo": null,
+                "speciesToMoveTo": "Gilloblennius tripennis",
+                "speciesDetail": "p358"
+            },
+            { 
+                "id": "5b",
+                "text": "Anal fin without spines; body with broad scaleless strips below the dorsal and anal fin bases; pectoral fin base without a black blotch bordered posteriorly with white (may be dark in some males)",
+                "idToMoveTo": null,
+                "speciesToMoveTo": "Gilloblennius adbitus",
+                "speciesDetail": "p353"
+            }
+        ]
+    },
+    {
         "id": "6",
         "options": [ 
             { 
                 "id": "6a",
-                "text": "Lateral line continuous, consisting of a single series of tubular scales",
+                "text": "D1 with 4 spines",
                 "idToMoveTo": "7",
                 "speciesToMoveTo": null,
                 "speciesDetail": null
             },
             { 
                 "id": "6b",
-                "text": "Lateral line discontinuous .............",
-                "idToMoveTo": "10",
+                "text": "D1 with 5-10 spines",
+                "idToMoveTo": "16",
                 "speciesToMoveTo": null,
                 "speciesDetail": null
             }
@@ -73,16 +111,54 @@
         "options": [ 
             { 
                 "id": "7a",
-                "text": "Lower jaw shorter than upper jaw; lateral line only consisting of tubular pored scales",
+                "text": "Body completely covered with cycloid scales; body laterally strongly compressed, high",
                 "idToMoveTo": "8",
                 "speciesToMoveTo": null,
                 "speciesDetail": null
             },
             { 
                 "id": "7b",
-                "text": "Lower jaw longer and heavier than upper jaw; lateral line anteriorly with ...............",
+                "text": "Sides of body with ctenoid scales; body compressed or round",
+                "idToMoveTo": "9",
+                "speciesToMoveTo": null,
+                "speciesDetail": null
+            }
+        ]
+    },
+    {
+        "id": "8",
+        "options": [ 
+            { 
+                "id": "8a",
+                "text": "Upper jaw extending to below middle of eye of further; 1st D1 spine longer than 2nd spine",
                 "idToMoveTo": null,
-                "speciesToMoveTo": "Ucla xenogrammus",
+                "speciesToMoveTo": "Notoclinus fenestratus",
+                "speciesDetail": null
+            },
+            { 
+                "id": "8b",
+                "text": "Upper jaw extending to below anterior margin of eye only; 1st D1 spine shorter than 2nd spine",
+                "idToMoveTo": null,
+                "speciesToMoveTo": "Notoclinus compressus",
+                "speciesDetail": null
+            }
+        ]
+    },
+    {
+        "id": "9",
+        "options": [ 
+            { 
+                "id": "9a",
+                "text": "Tubular lateral line scales 34-49, reaching caudal fin base",
+                "idToMoveTo": "10",
+                "speciesToMoveTo": null,
+                "speciesDetail": null
+            },
+            { 
+                "id": "9b",
+                "text": "Tubular lateral line scales 13-29 (anterior series), not reaching caudal fin base",
+                "idToMoveTo": "12",
+                "speciesToMoveTo": null,
                 "speciesDetail": null
             }
         ]
