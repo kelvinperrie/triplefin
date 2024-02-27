@@ -36,6 +36,21 @@ body {
 .breadrumb{
   margin: 0 .25em;
 }
+.breadrumb a {
+  text-decoration: underline;
+}
 .breadrumb::before {
   content: '> ';
+}
+
+.species-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.species-preview {
+}
+
+.species-preview .species-image {
+  max-width: 200px;
 }

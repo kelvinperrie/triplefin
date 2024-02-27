@@ -1,24 +1,59 @@
 [
     {
-        "scientificName" : "Apopterygion oculus"
+        "scientificName" : "Apopterygion oculus",
+        "images" : [
+            {
+                "fileName": "Apopterygionoculus01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Enneapterygius kermadecensis"
+        "scientificName" : "Enneapterygius kermadecensis",
+        "images" : [
+            {
+                "fileName": "Enneapterygiuskermadecensis01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Ruanoho decemdigitatus"
+        "scientificName" : "Ruanoho decemdigitatus",
+        "images" : [
+            {
+                "fileName": "Ruanohodecemdigitatus01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Gilloblennius tripennis"
+        "scientificName" : "Gilloblennius tripennis",
+        "images" : [
+            {
+                "fileName": "Gilloblenniustripennis01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Gilloblennius abditus"
+        "scientificName" : "Gilloblennius abditus",
+        "images" : [
+            {
+                "fileName": "Gilloblenniusabditus01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Notoclinus fenestratus"
+        "scientificName" : "Notoclinus fenestratus",
+        "images" : [
+            {
+                "fileName": "Notoclinusfenestratus01.png"
+            }
+        ]
     },
     {
-        "scientificName" : "Notoclinus compressus"
+        "scientificName" : "Notoclinus compressus",
+        "images" : [
+            {
+                "fileName": "Notoclinuscompressus01.png"
+            }
+        ]
     },
     {
         "scientificName" : "Cryptichthys jojettae"

@@ -55,7 +55,7 @@
             { 
                 "id": "4a",
                 "text": "D2 with 12-16 spines; snout slightly pointed",
-                "idToMoveTo": 5,
+                "idToMoveTo": "5",
                 "speciesToMoveTo": null,
                 "speciesDetail": null
             },
@@ -82,7 +82,7 @@
                 "id": "5b",
                 "text": "Anal fin without spines; body with broad scaleless strips below the dorsal and anal fin bases; pectoral fin base without a black blotch bordered posteriorly with white (may be dark in some males)",
                 "idToMoveTo": null,
-                "speciesToMoveTo": "Gilloblennius adbitus",
+                "speciesToMoveTo": "Gilloblennius abditus",
                 "speciesDetail": "p353"
             }
         ]
