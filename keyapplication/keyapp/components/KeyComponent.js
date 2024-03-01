@@ -3,48 +3,12 @@
 import keyData from '../public/key.json';
 import speciesData from '../public/species.json';
 import React, { useState } from 'react';
+import HistoryComponent from '../components/HistoryComponent';
+import FilteredSpeciesComponent from '../components/SpeciesListComponents'
+import OptionsDisplayComponent from '../components/OptionsDisplayComponent'
 
-// draws breadcrumbs to show links to previous questions answered
-const HistoryComponent = (props) => {
 
-    const { stepHistory, currentKeyStep, handle_breadcrumbClick } = props;
 
-    const currentStepJsx = <span className='breadrumb'>Q{currentKeyStep.id}</span>
-
-    let historyOutput = "";
-    historyOutput = stepHistory.map((item, index) => (<span className='breadrumb' key={item.id}><a href="" onClick={((e) => handle_breadcrumbClick(item, e)) } >Q{item.id}</a></span>))
-    historyOutput = <div className="breadrumbs">Breadcrumbs: {historyOutput}{currentStepJsx}</div>
-
-    return(
-        <div>
-            {historyOutput}
-        </div>
-    )
-
-}
-
-const SpeciesPreviewComponent = (props) => {
-    const { speciesData } = props;
-    return (
-        <div className="species-preview">
-            <img className="species-image" src={"images/"+speciesData.images[0].fileName} />
-            <div>{speciesData.scientificName}</div>
-        </div>
-    )
-}
-
-const FilteredSpeciesComponent = (props) => {
-    const { filteredSpecies } = props;
-    //console.log(filteredSpecies);
-    return(
-        <div>
-            Possible species are:
-            <div className="species-preview-container">
-                {filteredSpecies.map((item) => (<SpeciesPreviewComponent key={item.scientificName} speciesData={item} />))}
-            </div>
-        </div>
-    )
-}
 const SelectedSpeciesComponent = (props) => {
     const {selectedSpecies} = props;
     return(
@@ -158,24 +122,30 @@ const KeyComponent = () => {
         }
     };
 
-    const currestStepOptionsJsx = currentKeyStep ? currentKeyStep.options.map((item, index) => (
-        <li key={item.id} onClick={function() { handle_stepClick(item);}}>{item.text} (go to Q{item.idToMoveTo})</li> 
-    )) : "";
 
-    const welcomeText = "hello everybody, welcome to Mr Fish Website.";
+    const welcomeText = "New Zealand Triplefin Identification Guide";
     
     return (
-      <div>{welcomeText}
-        <div>
-            <HistoryComponent stepHistory={stepHistory} currentKeyStep={currentKeyStep} handle_breadcrumbClick={handle_breadcrumbClick}/>
-        </div>
-        <div>
-            {/* <span>Current step: {currentKeyStep && currentKeyStep.id}</span> */}
-            Select the option that best refelects your speciem 
-            <div>{currestStepOptionsJsx}
+      <div>
+        <div className="w-full m-5">
+            <div className="text-center w-full  my-4 text-4xl">{welcomeText}</div>
+            <div>
+                <p>
+                Use this website to help identify your triplefin! Select the best option that matches your observation, then new options will be shown and eventually it will be narrowed down to a species.
+                </p>
+                <p>
+                    This key (the questions to help identify the triplefin) was developed by X and taken from XXXXXXX.
+                </p>
             </div>
         </div>
-        {currentSpecies!= null ? <SelectedSpeciesComponent selectedSpecies={currentSpecies} /> : <FilteredSpeciesComponent filteredSpecies={filteredSpecies} />}
+
+        <div className="mx-5 p-5 bg-slate-50 border-t-4 rounded-lg border-accentColour" >
+            <OptionsDisplayComponent currentKeyStep={currentKeyStep} handleOptionClick={handle_stepClick}/>
+            <div>
+                <HistoryComponent stepHistory={stepHistory} currentKeyStep={currentKeyStep} handle_breadcrumbClick={handle_breadcrumbClick}/>
+            </div>
+            {currentSpecies!= null ? <SelectedSpeciesComponent selectedSpecies={currentSpecies} /> : <FilteredSpeciesComponent filteredSpecies={filteredSpecies} />}
+        </div>
       </div>
     )
   }
