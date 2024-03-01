@@ -127,7 +127,7 @@ const KeyComponent = () => {
     
     return (
       <div>
-        <div className="w-full m-5">
+        <div className="w-full m-5 text-whitesmoke">
             <div className="text-center w-full  my-4 text-4xl">{welcomeText}</div>
             <div>
                 <p>
@@ -139,7 +139,7 @@ const KeyComponent = () => {
             </div>
         </div>
 
-        <div className="mx-5 p-5 bg-slate-50 border-t-4 rounded-lg border-accentColour" >
+        <div className="mx-5 p-5 bg-slate-50 rounded-lg bg-whitesmoke" >
             <OptionsDisplayComponent currentKeyStep={currentKeyStep} handleOptionClick={handle_stepClick}/>
             <div>
                 <HistoryComponent stepHistory={stepHistory} currentKeyStep={currentKeyStep} handle_breadcrumbClick={handle_breadcrumbClick}/>

@@ -14,7 +14,20 @@ module.exports = {
       },
       colors: {
         "accentColour" : '#00c0ff',
-        "optionBgColour" : "#fff0ab"
+        "optionBgColour" : "#fff0ab",
+        "darkBackground" : "#22333B",
+        "contentBackground" : "#F2F4F3",
+        "notSoDarkBackground" : "#7D7C7A",
+        "lightText" : "#F2F4F3",
+        
+        "gunmetal" : "#22333B",
+        "whitesmoke" : "#F2F4F3",
+        "beaver" : "#A9927D",
+        "walnutbrown" : "#5E503F",
+
+        "asparagus" : "#72A276",
+
+        "cardBackground" : "#A9927D"
       }
     },
     

@@ -5,7 +5,7 @@ const OptionDisplayComponent = (props) => {
     const goToQuestionText = currentOption.idToMoveTo ? <span>(go to Q{currentOption.idToMoveTo})</span> : "";
 
     return (
-        <div className="max-w-[300px] mx-5 border-4 border-optionBgColour p-5 cursor-pointer bg-[#fff0ab]" onClick={function() { handleOptionClick(currentOption);}}>
+        <div className="max-w-[300px] mx-5 my-1 border-4 border-gunmetal p-5 cursor-pointer bg-asparagus" onClick={function() { handleOptionClick(currentOption);}}>
             <div className="">Option {index+1}:</div>
             {currentOption.text} {goToQuestionText}
         </div>

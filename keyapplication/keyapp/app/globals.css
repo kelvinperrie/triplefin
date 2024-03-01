@@ -22,7 +22,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    background-color: #ffc500;
+    background-color: #22333B;
 }
 
 @layer utilities {
