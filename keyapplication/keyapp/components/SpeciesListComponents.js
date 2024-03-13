@@ -13,7 +13,7 @@ const FilteredSpeciesComponent = (props) => {
     //console.log(filteredSpecies);
     return(
         <div>
-            Based on the questions you've answered so far your possible species are:
+            Based on the questions you&apos;ve answered so far your possible species are:
             <div className="species-preview-container">
                 {filteredSpecies.map((item) => (<SpeciesPreviewComponent key={item.scientificName} speciesData={item} />))}
             </div>
