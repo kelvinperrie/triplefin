@@ -12,7 +12,7 @@ import OptionsDisplayComponent from '../components/OptionsDisplayComponent'
 const SelectedSpeciesComponent = (props) => {
     const {selectedSpecies} = props;
     return(
-        <div>lets pretend we're showing the species here called {selectedSpecies.scientificName}</div>
+        <div>lets pretend we&apos;re showing the species here called {selectedSpecies.scientificName}</div>
     )
 }
 
